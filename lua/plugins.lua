@@ -27,12 +27,27 @@ require("lazy").setup({
     },
     {
         "nvim-treesitter/nvim-treesitter",
+        branch = "main",
+    },
+    {
+        "MeanderingProgrammer/treesitter-modules.nvim",
+        dependencies = {"nvim-treesitter/nvim-treesitter"},
         config = function()
-            require("nvim-treesitter.configs").setup({
+            require("treesitter-modules").setup({
                 ensure_installed = {"c", "cpp", "lua", "vim", "vimdoc", "query"},
-                auto_install = true,
                 highlight = {
                     enable = true
+                },
+                incremental_selection = {
+                    enable = true,
+                    disable = false,
+                    -- set value to `false` to disable individual mapping
+                    keymaps = {
+                        init_selection = "gnn",
+                        node_incremental = "grn",
+                        scope_incremental = "grc",
+                        nome_decremental = "grm",
+                    },
                 },
             })
         end,
