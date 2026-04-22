@@ -43,10 +43,10 @@ require("lazy").setup({
                     disable = false,
                     -- set value to `false` to disable individual mapping
                     keymaps = {
-                        init_selection = "gnn",
-                        node_incremental = "grn",
-                        scope_incremental = "grc",
-                        nome_decremental = "grm",
+                        init_selection = "<Leader>ss",
+                        node_incremental = "<Leader>si",
+                        scope_incremental = "<Leader>sc",
+                        node_decremental = "<Leader>sd",
                     },
                 },
             })
