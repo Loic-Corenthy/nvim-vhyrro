@@ -115,5 +115,12 @@ require("lazy").setup({
                 require "nvim-treesitter-textobjects.select".select_textobject("@local.scope", "locals")
             end)
         end,
-    }
+    },
+    {
+        "neovim/nvim-lspconfig",
+        config = function()
+            vim.lsp.config("clangd", {})
+            vim.lsp.enable({"clangd"})
+        end
+    },
 })
