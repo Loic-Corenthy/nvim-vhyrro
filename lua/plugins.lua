@@ -118,9 +118,17 @@ require("lazy").setup({
     },
     {
         "neovim/nvim-lspconfig",
-        config = function()
-            vim.lsp.config("clangd", {})
-            vim.lsp.enable({"clangd"})
-        end
+    },
+    {
+        "mason-org/mason.nvim",
+        opts = {}
+    },
+    {
+        "mason-org/mason-lspconfig.nvim",
+        opts = {},
+        dependencies = {
+            { "mason-org/mason.nvim", opts = {} },
+            "neovim/nvim-lspconfig",
+        },
     },
 })
