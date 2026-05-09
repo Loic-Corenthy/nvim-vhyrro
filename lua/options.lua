@@ -98,3 +98,10 @@ vim.opt.softtabstop = 4
 
 -- Colors (added to support cyberdreams theme)
 vim.opt.termguicolors = true
+
+
+-- Setup diagnostics
+vim.diagnostic.config({
+    virtual_lines = true,
+})
+
