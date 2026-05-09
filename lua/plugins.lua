@@ -32,28 +32,33 @@ require("lazy").setup({
     {
         "MeanderingProgrammer/treesitter-modules.nvim",
         dependencies = {"nvim-treesitter/nvim-treesitter"},
-        config = function()
-            require("treesitter-modules").setup({
-                ensure_installed = {"c", "cpp", "lua", "vim", "vimdoc", "query"},
-                highlight = {
-                    enable = true
+        opts = {
+            ensure_installed = {"c", "cpp", "lua", "vim", "vimdoc", "query"},
+            fold = { enable = false },
+            highlight = { enable = true },
+            indent = { enable = true },
+            incremental_selection = {
+                enable = true,
+                disable = false,
+                -- set value to `false` to disable individual mapping
+                keymaps = {
+                    init_selection = "<Leader>ss",
+                    node_incremental = "<Leader>si",
+                    scope_incremental = "<Leader>sc",
+                    node_decremental = "<Leader>sd",
                 },
-                incremental_selection = {
-                    enable = true,
-                    disable = false,
-                    -- set value to `false` to disable individual mapping
-                    keymaps = {
-                        init_selection = "<Leader>ss",
-                        node_incremental = "<Leader>si",
-                        scope_incremental = "<Leader>sc",
-                        node_decremental = "<Leader>sd",
-                    },
-                },
-            })
-        end,
+            },
+        },
     },
     {
         "nvim-treesitter/nvim-treesitter-textobjects",
+        keys = {
+            {"am", mode = { "x", "o"} },
+            {"im", mode = { "x", "o"} },
+            {"ac", mode = { "x", "o"} },
+            {"ic", mode = { "x", "o"} },
+            {"as", mode = { "x", "o"} },
+        },
         branch = "main",
         init = function()
             -- Disable entire built-in ftplugin mappings to avoid conflicts.
@@ -98,22 +103,14 @@ require("lazy").setup({
 
             -- keymaps
             -- You can use the capture groups defined in `textobjects.scm`
-            vim.keymap.set({ "x", "o" }, "am", function()
-                require "nvim-treesitter-textobjects.select".select_textobject("@function.outer", "textobjects")
-            end)
-            vim.keymap.set({ "x", "o" }, "im", function()
-                require "nvim-treesitter-textobjects.select".select_textobject("@function.inner", "textobjects")
-            end)
-            vim.keymap.set({ "x", "o" }, "ac", function()
-                require "nvim-treesitter-textobjects.select".select_textobject("@class.outer", "textobjects")
-            end)
-            vim.keymap.set({ "x", "o" }, "ic", function()
-                require "nvim-treesitter-textobjects.select".select_textobject("@class.inner", "textobjects")
-            end)
+            local select = require("nvim-treesitter-textobjects.select").select_textobject
+
+            vim.keymap.set({ "x", "o" }, "am", function() select("@function.outer", "textobjects") end, {desc="Select outer function"})
+            vim.keymap.set({ "x", "o" }, "im", function() select("@function.inner", "textobjects") end, {desc="Select inner function"})
+            vim.keymap.set({ "x", "o" }, "ac", function() select("@class.outer", "textobjects") end)
+            vim.keymap.set({ "x", "o" }, "ic", function() select("@class.inner", "textobjects") end)
             -- You can also use captures from other query groups like `locals.scm`
-            vim.keymap.set({ "x", "o" }, "as", function()
-                require "nvim-treesitter-textobjects.select".select_textobject("@local.scope", "locals")
-            end)
+            vim.keymap.set({ "x", "o" }, "as", function() select("@local.scope", "locals") end)
         end,
     },
     {
@@ -137,6 +134,8 @@ require("lazy").setup({
     },
     {
         "saghen/blink.cmp",
+        event = {"InsertEnter", "CmdwinEnter" },
+        --- event = { "VeryLazy" },
         dependencies = { "rafamadriz/friendly-snippets" },
         version = "1.*",
         opts = {
