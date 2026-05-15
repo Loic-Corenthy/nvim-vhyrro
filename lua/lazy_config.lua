@@ -33,6 +33,7 @@ require("lazy").setup({
     require("plugins.whichkey"),
     require("plugins.telescope"),
     require("plugins.toggleterm"),
+    require("plugins.lualine"),
 
 },{
     ui = {
