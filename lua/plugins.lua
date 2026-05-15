@@ -19,12 +19,7 @@ vim.opt.rtp:prepend(lazypath)
 
 -- Setup lazy.nvim
 require("lazy").setup({
-    {
-        "rebelot/kanagawa.nvim",
-        config = function()
-            vim.cmd.colorscheme("kanagawa")
-        end,
-    },
+    require("all_plugins.kanagawa"),
     {
         "nvim-treesitter/nvim-treesitter",
         branch = "main",
