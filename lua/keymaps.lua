@@ -24,7 +24,7 @@ vim.keymap.set("n", "<C-k>", "<C-w><C-k>", { desc = "Move focus to the upper win
 
 vim.keymap.set("i", "kj", "<Esc>", { desc = "Escape insert mode" })
 
-vim.api.nvim_create_autoCmd("TextYankPost", {
+vim.api.nvim_create_autocmd("TextYankPost", {
   desc = "Highlight when yanking (copying) text",
   group = vim.api.nvim_create_augroup("kickstart-highlight-yank", { clear = true }),
   callback = function()
