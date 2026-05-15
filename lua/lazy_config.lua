@@ -29,6 +29,10 @@ require("lazy").setup({
     require("plugins.blink"),
     require("plugins.lazydev"),
     require("plugins.neo-tree"),
+    require("plugins.gitsigns"),
+    require("plugins.whichkey"),
+    require("plugins.telescope"),
+    require("plugins.toggleterm"),
 
 },{
     ui = {
