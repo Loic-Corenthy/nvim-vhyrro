@@ -34,6 +34,7 @@ require("lazy").setup({
     require("plugins.telescope"),
     require("plugins.toggleterm"),
     require("plugins.lualine"),
+    require("plugins.cmake-tools"),
 
 },{
     ui = {

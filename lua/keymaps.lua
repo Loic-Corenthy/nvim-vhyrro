@@ -32,16 +32,16 @@ vim.api.nvim_create_autocmd("TextYankPost", {
   end,
 })
 
--- vim.api.nvim_create_autoCmd("FileType", {
---   pattern = { "h", "hpp", "cpp", "c", "cmake" },
---   callback = function()
---     vim.keymap.set("n", "<leader>mb", ":CMakeBuild<cr>", { buffer = true, desc = "Build" })
---     vim.keymap.set("n", "<leader>msc", ":CMakeSelectConfigurePreset<cr>", { buffer = true, desc = "Select Configure Preset" })
---     vim.keymap.set("n", "<leader>msb", ":CMakeSelectBuildPreset<cr>", { buffer = true, desc = "Select Build Preset" })
---     vim.keymap.set("n", "<leader>mst", ":CMakeSelectBuildTarget<cr>", { buffer = true, desc = "Select Build Target" })
---     vim.keymap.set("n", "<leader>mrt", ":CMakeSelectLaunchTarget<cr>", { buffer = true, desc = "CMake Select Launche Target" })
---     vim.keymap.set("n", "<leader>mr", ":CMakeRun<cr>", { buffer = true, desc = "CMake Run" })
---   end,
--- })
+vim.api.nvim_create_autoCmd("FileType", {
+  pattern = { "h", "hpp", "cpp", "c", "cmake" },
+  callback = function()
+    vim.keymap.set("n", "<leader>mb", ":CMakeBuild<cr>", { buffer = true, desc = "Build" })
+    vim.keymap.set("n", "<leader>msc", ":CMakeSelectConfigurePreset<cr>", { buffer = true, desc = "Select Configure Preset" })
+    vim.keymap.set("n", "<leader>msb", ":CMakeSelectBuildPreset<cr>", { buffer = true, desc = "Select Build Preset" })
+    vim.keymap.set("n", "<leader>mst", ":CMakeSelectBuildTarget<cr>", { buffer = true, desc = "Select Build Target" })
+    vim.keymap.set("n", "<leader>mrt", ":CMakeSelectLaunchTarget<cr>", { buffer = true, desc = "CMake Select Launche Target" })
+    vim.keymap.set("n", "<leader>mr", ":CMakeRun<cr>", { buffer = true, desc = "CMake Run" })
+  end,
+})
 
 
