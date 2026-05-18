@@ -32,7 +32,7 @@ vim.api.nvim_create_autocmd("TextYankPost", {
   end,
 })
 
-vim.api.nvim_create_autoCmd("FileType", {
+vim.api.nvim_create_autocmd("FileType", {
   pattern = { "h", "hpp", "cpp", "c", "cmake" },
   callback = function()
     vim.keymap.set("n", "<leader>mb", ":CMakeBuild<cr>", { buffer = true, desc = "Build" })
