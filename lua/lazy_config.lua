@@ -35,6 +35,7 @@ require("lazy").setup({
     require("plugins.toggleterm"),
     require("plugins.lualine"),
     require("plugins.cmake-tools"),
+    require("plugins.dap-utilities"),
 
 },{
     ui = {
