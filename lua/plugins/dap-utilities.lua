@@ -96,7 +96,7 @@ return {
             executable = {
                 -- POINT THIS TO YOUR MASO INSTALL PATH
                 -- usually: ~/.local/share/nvim/mason/bin/codelldb
-                command = vim.fn.stdpath "data" .. "mason/bin/codelldb",
+                command = vim.fs.joinpath(vim.fn.stdpath("data"), "mason", "bin", "codelldb"),
                 args = { "--port", "${port}" },
             },
         }
