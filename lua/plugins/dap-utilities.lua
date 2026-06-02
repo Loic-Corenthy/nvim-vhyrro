@@ -66,6 +66,27 @@ return {
             end,
             desc = "Debug: See last session result.",
         },
+        {
+            "<F4>",
+            function()
+                require("dap").run_to_cursor()
+            end,
+            desc = "Debug: Run to cursor.",
+        },
+        {
+            "<F9>",
+            function()
+                require("dap").up()
+            end,
+            desc = "Debug: Go up in the stack.",
+        },
+        {
+            "<F10>",
+            function()
+                require("dap").down()
+            end,
+            desc = "Debug: Go down in the stack.",
+        },
     },
     config = function()
         local dap = require("dap")
@@ -140,25 +161,6 @@ return {
 
         -- Dap UI setup
         -- For more information, see |:help nvim-dap-ui|
-        dapui.setup {
-            -- Set icons to characters that are more likely to work in every terminal.
-            --    Feel free to remove or use ones that you like more! :)
-            --    Don"t feel like these are good choices.
-            icons = { expanded = "▾", collapsed = "▸", current_frame = "*" },
-            controls = {
-                icons = {
-                    pause = "⏸",
-                    play = "▶",
-                    step_into = "⏎",
-                    step_over = "⏭",
-                    step_out = "⏮",
-                    step_back = "b",
-                    run_last = "▶▶",
-                    terminate = "⏹",
-                    disconnect = "⏏",
-                },
-            },
-        }
 
         -- Change breakpoint icons
         -- vim.api.nvim_set_hl(0, "DapBreak", { fg = "#e51400" })
