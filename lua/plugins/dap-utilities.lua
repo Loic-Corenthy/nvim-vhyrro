@@ -1,5 +1,6 @@
 return {
     "mfussenegger/nvim-dap",
+    -- "mfussenegger/nvim-dap-python",
     -- NOTE: And you can specify dependencies as well
     dependencies = {
         -- Creates a beautiful debugger UI

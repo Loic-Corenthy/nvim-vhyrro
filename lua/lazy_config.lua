@@ -37,6 +37,7 @@ require("lazy").setup({
     require("plugins.cmake-tools"),
     require("plugins.dap-utilities"),
     require("plugins.render-markdown"),
+    require("plugins.venv-selector"),
 
 },{
     ui = {
