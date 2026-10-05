@@ -10,6 +10,13 @@ return {
         vim.lsp.config("clangd", {})
         vim.lsp.enable({"clangd"})
 
+        vim.api.nvim_create_autocmd("BufWritePre", {
+          pattern = { "*.c", "*.cpp", "*.cc", "*.h", "*.hpp" },
+          callback = function()
+            vim.lsp.buf.format({ async = false })
+          end,
+        })
+
         vim.api.nvim_create_autocmd('LspAttach', {
             group = vim.api.nvim_create_augroup('kickstart-lsp-attach', { clear = true }),
             callback = function(event)
@@ -108,7 +115,6 @@ return {
                 -- end
             end,
         })
-
 
     end
 }
