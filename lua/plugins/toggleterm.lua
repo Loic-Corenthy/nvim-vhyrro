@@ -21,6 +21,17 @@ return {
         height = function()
           return math.ceil(vim.o.lines * 0.9)
         end,
+
+      on_open = function(term)
+        local opts = { buffer = term.bufnr, silent = true }
+
+        -- Remove buffer change when in terminal
+        vim.keymap.set("n", "<Left>", "<Nop>", opts)
+        vim.keymap.set("n", "<Right>", "<Nop>", opts)
+        vim.keymap.set("i", "<Left>", "<Nop>", opts)
+        vim.keymap.set("i", "<Right>", "<Nop>", opts)
+      end,
+
       },
     },
   },
