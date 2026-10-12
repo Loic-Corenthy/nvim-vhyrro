@@ -7,7 +7,18 @@ return {
     },
 
     config = function()
-        vim.lsp.config("clangd", {})
+        vim.lsp.config("clangd", {
+            cmd = { "clangd",
+              "--background-index",
+              "--clang-tidy",
+              "--header-insertion=iwyu",
+              "--completion-style=detailed",
+              -- "--function-arg-placeholders",
+            },
+            filetypes = { "h", "hpp", "c", "cpp", "ipp" },
+            root_markers = { '.clangd', '.git', 'CMakeLists.txt' },
+        })
+
         vim.lsp.enable({"clangd"})
 
         vim.api.nvim_create_autocmd("BufWritePre", {
