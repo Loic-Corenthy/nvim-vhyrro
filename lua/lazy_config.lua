@@ -38,6 +38,7 @@ require("lazy").setup({
     require("plugins.dap-utilities"),
     require("plugins.render-markdown"),
     require("plugins.venv-selector"),
+    require("plugins.smear-cursor"),
 
 },{
     ui = {
