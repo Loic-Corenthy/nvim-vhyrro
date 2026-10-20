@@ -13,3 +13,5 @@ wrap("<leader>fs", "~~", "Format as strikethrough")
 
 vim.cmd([[iabbrev <buffer> <expr> ttoday '==' .. strftime('%d/%m/%Y') .. '==']])
 
+vim.keymap.set("n", "<leader>ch", "i- [ ] ", { buffer = true, desc = desc })
+
