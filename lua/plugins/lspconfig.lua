@@ -78,6 +78,9 @@ return {
                 --  the definition of its *type*, not where it was *defined*.
                 map('grt', require('telescope.builtin').lsp_type_definitions, '[G]oto [T]ype Definition')
 
+                -- Show the error message window
+                map("gre", vim.diagnostic.open_float, "[G]oto [E]rror Panel")
+
                 -- This function resolves a difference between neovim nightly (version 0.11) and stable (version 0.10)
                 ---@param method vim.lsp.protocol.Method
                 ---@param bufnr? integer some lsp support methods only in specific files
