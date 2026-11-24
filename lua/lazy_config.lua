@@ -39,6 +39,7 @@ require("lazy").setup({
     require("plugins.render-markdown"),
     require("plugins.venv-selector"),
     require("plugins.smear-cursor"),
+    require("plugins.diffview"),
 
 },{
     ui = {

@@ -52,7 +52,19 @@ return { -- Fuzzy Finder (files, lsp, etc)
                     --     i = { ["<c-enter>"] = "to_fuzzy_refine" },
                     --   },
                     -- },
-                    -- pickers = {}
+                    pickers = {
+                        lsp_document_symbols = {
+                            symbol_width = 60,       -- default 25
+                            -- symbol_type_width = 12, -- the "Function"/"Method" column, default 8
+                        },
+                        lsp_dynamic_workspace_symbols = {
+                            fname_width = 40,         -- file-path column
+                        },
+                        layout_config = {
+                            width = 0.95,
+                            preview_width = 0.4
+                        },
+                    },
                     extensions = {
                         ["ui-select"] = {
                             require("telescope.themes").get_dropdown(),

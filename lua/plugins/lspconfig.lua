@@ -9,9 +9,14 @@ return {
     config = function()
         vim.lsp.config("clangd", {
             cmd = { "clangd",
+              "-j=10",
+              "--malloc-trim",
+              -- "--pch-header=memory",
               "--background-index",
+              "--background-index-priority=normal",
               "--clang-tidy",
-              "--header-insertion=iwyu",
+              -- "--header-insertion=iwyu",
+              "--header-insertion=never",
               "--completion-style=detailed",
               -- "--function-arg-placeholders",
             },
