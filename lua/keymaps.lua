@@ -27,6 +27,12 @@ vim.keymap.set("i", "kj", "<Esc>", { desc = "Escape insert mode" })
 vim.keymap.set("n", "-", "ddp", { desc = "Move current line below"})
 vim.keymap.set("n", "_", "ddkkp", { desc = "Move current line below"})
 
+vim.keymap.set('n', '<leader>yp', function()
+  local path = vim.fn.expand('%:p')
+  vim.fn.setreg('+', path)
+  vim.notify('Copied: ' .. path)
+end, { desc = 'Yank absolute file path' })
+
 
 vim.api.nvim_create_autocmd("TextYankPost", {
   desc = "Highlight when yanking (copying) text",

@@ -18,7 +18,14 @@ return {
         completion = { documentation = { auto_show = true } },
         sources = {
             default = { "lazydev", "lsp", "path", "snippets", "buffer" },
+            per_filetype = {
+                markdown = { inherit_defaults = true, "llogtable" },
+            },
             providers = {
+                llogtable = {
+                    name = "LogTable",
+                    module = "sources.llogtable",
+                },
                 lazydev = {
                     name = "LazyDev",
                     module = "lazydev.integrations.blink",
